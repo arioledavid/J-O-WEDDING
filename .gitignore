@@ -12,9 +12,6 @@ dist/
 .env.local
 .env.*.local
 
-# Generated files (regenerate with npm run generate-pdf / generate-qrcode)
-public/wedding-programme.pdf
-
 # macOS
 .DS_Store
 

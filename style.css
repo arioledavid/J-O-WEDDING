@@ -437,20 +437,62 @@ body {
   margin-bottom: 40px;
 }
 
-.footer-portrait-container {
+.footer-duo-container {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
   width: 100%;
   margin: 0 auto 30px;
   border: 1px solid var(--color-gold-light);
-  padding: 6px;
   background-color: var(--color-white);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 6px;
+  overflow: hidden;
 }
 
-.footer-portrait {
+.footer-duo-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.footer-duo-img {
   width: 100%;
-  height: 280px;
+  height: 320px;
   object-fit: cover;
+  object-position: center top;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.footer-duo-img--casual {
+  object-position: center center;
+}
+
+.footer-duo-img:hover {
+  transform: scale(1.02);
+}
+
+.footer-duo-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold) 30%, var(--color-gold) 70%, transparent);
+  flex-shrink: 0;
+  margin: 12px 4px;
+}
+
+.footer-duo-caption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  padding: 6px 4px 2px;
+  background-color: var(--color-white);
 }
 
 .footer-details {
@@ -690,13 +732,13 @@ body {
     padding: 1.5cm;
   }
 
-  .footer-portrait-container {
-    max-width: 320px;
-    margin: 15px auto;
+  .footer-duo-container {
+    margin: 10px auto;
+    padding: 4px;
   }
 
-  .footer-portrait {
-    height: 200px;
+  .footer-duo-img {
+    height: 190px;
   }
 
   /* Print QR Code */
