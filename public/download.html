@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloading — Joseph & Olivia Wedding Programme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --cream: #FAF8F5;
+      --charcoal: #2C2A29;
+      --muted: #7a7672;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--charcoal);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+      border: 1.5px solid var(--gold);
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.8rem auto;
+      opacity: 0.6;
+    }
+
+    /* Animated download icon */
+    .download-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.5rem;
+      color: var(--gold);
+      animation: bounce 1.4s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50%       { transform: translateY(6px); opacity: 0.65; }
+    }
+
+    .manual-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .manual-link:hover { border-color: var(--gold); }
+
+    .view-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .view-link:hover { border-color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="monogram">J&amp;O</div>
+
+  <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="1.5"
+       stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+
+  <h1>Your programme is downloading</h1>
+  <div class="divider"></div>
+  <p>The wedding programme for Joseph &amp; Olivia will download automatically.<br/>
+     Friday, 7 August 2026 · The Waterside, Lekki</p>
+
+  <a id="manual-link" class="manual-link" href="wedding-programme.pdf"
+     download="Joseph_and_Olivia_Wedding_Programme.pdf">
+    Click here if it doesn't start
+  </a>
+  <br/>
+  <a href="/" class="view-link">View online instead</a>
+
+  <script>
+    // Trigger download as soon as the page loads
+    window.addEventListener('load', () => {
+      const a = document.createElement('a');
+      a.href = 'wedding-programme.pdf';
+      a.download = 'Joseph_and_Olivia_Wedding_Programme.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+  </script>
+</body>
+</html>
